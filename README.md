@@ -7,3 +7,11 @@ photo.png --> photos
 cat.jpg   --> photos
 
 names.txt --> documents
+
+
+### Usage:
+
+- Install Python
+- Move main.py to chosen directory
+- Run program
+- Follow steps inside program
