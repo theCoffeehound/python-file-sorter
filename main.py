@@ -59,6 +59,16 @@ def hakemistojen_luonti():
     except FileExistsError:
         print("Kansio on jo olemassa, et voi luoda sitä uudestaan!")
 
+    try:
+        kansio = parent + "/arkistot/"
+        if (os.path.exists(kansio)):
+            print("Arkistot kansio on jo olemassa!")
+        else:
+            os.mkdir(kansio)
+            print("Arkistot kansio luotu.")
+    except FileExistsError:
+        print("Kansio on jo olemassa, et voi luoda sitä uudestaan!")
+
 def listaus():
 
     print("KANSIOT:")
@@ -86,7 +96,7 @@ def lajittelu():
 
             # Voisi lisätä koodin joka lowercasee tiedostopäätteet ja tutkii vasta sitten.
             # Tällä voitaisiin lyhentää if ehtoja
-            if(paate == "txt" or paate == "pdf"):
+            if(paate == "txt" or paate == "pdf" or paate == "docx" or paate == "csv" or paate == "xlsx" or paate == "pptx"):
                 os.replace(str(tiedoston_polku), str(parent + "/" + "tiedostot" + "/" + tiedosto))
             elif (paate == "png" or paate == "jpg" or paate == "jpeg" or paate == "PNG" or paate == "JPG" or paate == "JPEG"):
                 os.replace(str(tiedoston_polku), str(parent + "/" + "kuvat" + "/" + tiedosto))
@@ -94,6 +104,8 @@ def lajittelu():
                 os.replace(str(tiedoston_polku), str(parent + "/" + "videot" + "/" + tiedosto))
             elif (paate == "gif"):
                 os.replace(str(tiedoston_polku), str(parent + "/" + "gifs" + "/" + tiedosto))
+            elif (paate == "zip" or paate == "rar" or paate == "7z"):
+                os.replace(str(tiedoston_polku), str(parent + "/" + "arkistot" + "/" + tiedosto))
             else:
                 print("No mitä vihhua?")
 
